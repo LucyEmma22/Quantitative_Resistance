@@ -1,0 +1,5 @@
+gyrA
+gyrA_2
+23S
+cmeR
+rpsL

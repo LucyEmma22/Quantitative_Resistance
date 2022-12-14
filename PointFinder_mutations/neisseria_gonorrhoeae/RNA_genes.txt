@@ -1,0 +1,5 @@
+16S_rRNA
+23S_rRNA_a1
+23S_rRNA_a2
+23S_rRNA_a3
+23S_rRNA_a4

@@ -1,0 +1,236 @@
+﻿pmid,bacteria,antibiotic,n,method,number_variants,variant,value,type,gene_mutation
+34612702,m.bovis,ernofloxacin,96,DBGWAS,2,component,2,gene,mutation
+34612702,m.bovis,tylosin,96,DBGWAS,2,component,2,gene,mutation
+34612702,m.bovis,gamithromycin,96,DBGWAS,2,component,2,gene,mutation
+33014966,a.baumannii,gentamicin,84,treeWAS,2,snp,2,gene,mutation
+33014966,a.baumannii,levofloxacin,84,treeWAS,2,snp,2,gene,mutation
+33014966,a.baumannii,ciprofloxacin,84,PYSEER,1170,kmer,10,associated locus tag,mutation
+33014966,a.baumannii,gentamicin,84,PYSEER,177,kmer,10,associated locus tag,mutation
+33014966,a.baumannii,levofloxacin,84,PYSEER,1094,kmer,10,associated locus tag,mutation
+33014966,a.baumannii,cefepime,84,PYSEER,207,kmer,10,associated locus tag,mutation
+33014966,a.baumannii,ceftazidime,84,PYSEER,2,kmer,1,associated locus tag,mutation
+33014966,a.baumannii,cefuroxime,84,PYSEER,366,kmer,5,associated locus tag,mutation
+34199768,e.coli,nalidixic acid,99,PYSEER,1,snp,1,gene,mutation
+34199768,e.coli,norfloxacin,99,PYSEER,13,kmer,7,gene,mutation
+34199768,e.coli,ciprofloxacin,99,PYSEER,3,kmer,2,gene,mutation
+34199768,e.coli,levofloxacin,99,PYSEER,12,kmer,6,gene,mutation
+33246485,c.diphtheriae,penicillin,247,treeWAS,1,kmer,1,gene,mutation
+33246485,c.diphtheriae,penicillin (after removing genomes containing pbp2m),247,treeWAS,1,kmer,1,gene,mutation
+33246485,c.diphtheriae,amoxicillin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,oxacillin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,cefotaxime,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,imipenem,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,erythromycin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,clarithromycin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,azithromycin,247,treeWAS,1,kmer,1,gene,mutation
+33246485,c.diphtheriae,spiramycin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,pristinamycin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,kanamycin,247,treeWAS,14,kmer,3,gene/intergenic region,mutation
+33246485,c.diphtheriae,gentamicin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,rifampicin,247,treeWAS,25,kmer,0,gene,mutation
+33246485,c.diphtheriae,tetracycline,247,treeWAS,1,kmer,1,gene,mutation
+33246485,c.diphtheriae,ciprofloxacin,247,treeWAS,4,kmer,3,gene,mutation
+33246485,c.diphtheriae,clindamycin,247,treeWAS,0,kmer,0,gene,mutation
+33246485,c.diphtheriae,sulfonamide,247,treeWAS,2,kmer,2,gene,mutation
+33246485,c.diphtheriae,trimethoprim,247,treeWAS,2,kmer,1,gene,mutation
+33246485,c.diphtheriae,trimethoprim-sulfamethoxazole,247,treeWAS,5,kmer,4,gene,mutation
+33246485,c.diphtheriae,penicillin,247,treeWAS,NA,NA,8,accessory gene presence/absence,gene
+33246485,c.diphtheriae,penicillin (after removing genomes containing pbp2m),247,treeWAS,NA,NA,0,accessory gene presence/absence,gene
+33246485,c.diphtheriae,amoxicillin,247,treeWAS,NA,NA,56,accessory gene presence/absence,gene
+33246485,c.diphtheriae,oxacillin,247,treeWAS,NA,NA,1,accessory gene presence/absence,gene
+33246485,c.diphtheriae,cefotaxime,247,treeWAS,NA,NA,1,accessory gene presence/absence,gene
+33246485,c.diphtheriae,imipenem,247,treeWAS,NA,NA,1,accessory gene presence/absence,gene
+33246485,c.diphtheriae,erythromycin,247,treeWAS,NA,NA,13,accessory gene presence/absence,gene
+33246485,c.diphtheriae,clarithromycin,247,treeWAS,NA,NA,0,accessory gene presence/absence,gene
+33246485,c.diphtheriae,azithromycin,247,treeWAS,NA,NA,10,accessory gene presence/absence,gene
+33246485,c.diphtheriae,spiramycin,247,treeWAS,NA,NA,8,accessory gene presence/absence,gene
+33246485,c.diphtheriae,pristinamycin,247,treeWAS,NA,NA,0,accessory gene presence/absence,gene
+33246485,c.diphtheriae,kanamycin,247,treeWAS,NA,NA,5,accessory gene presence/absence,gene
+33246485,c.diphtheriae,gentamicin,247,treeWAS,NA,NA,1,accessory gene presence/absence,gene
+33246485,c.diphtheriae,rifampicin,247,treeWAS,NA,NA,0,accessory gene presence/absence,gene
+33246485,c.diphtheriae,tetracycline,247,treeWAS,NA,NA,8,accessory gene presence/absence,gene
+33246485,c.diphtheriae,ciprofloxacin,247,treeWAS,NA,NA,40,accessory gene presence/absence,gene
+33246485,c.diphtheriae,clindamycin,247,treeWAS,NA,NA,2,accessory gene presence/absence,gene
+33246485,c.diphtheriae,sulfonamide,247,treeWAS,NA,NA,,accessory gene presence/absence,gene
+33246485,c.diphtheriae,trimethoprim,247,treeWAS,NA,NA,0,accessory gene presence/absence,gene
+33246485,c.diphtheriae,trimethoprim-sulfamethoxazole,247,treeWAS,NA,NA,16,accessory gene presence/absence,gene
+29358649,m.tuberculosis,isoniazid,6465,Regression,4,snp,4,loci,mutation
+29358649,m.tuberculosis,rifampicin,6465,Regression,7,snp,2,loci,mutation
+29358649,m.tuberculosis,ethambutol,6465,Regression,8,snp,5,loci,mutation
+29358649,m.tuberculosis,ethionamide,6465,Regression,3,snp,2,loci,mutation
+29358649,m.tuberculosis,pyrazinamide,6465,Regression,3,snp,2,loci,mutation
+29358649,m.tuberculosis,streptomycin,6465,Regression,3,snp,3,loci,mutation
+29358649,m.tuberculosis,amikacin,6465,Regression,1,snp,1,loci,mutation
+29358649,m.tuberculosis,kanamycin,6465,Regression,3,snp,2,loci,mutation
+29358649,m.tuberculosis,capreomycin,6465,Regression,1,snp,2,loci,mutation
+29358649,m.tuberculosis,ciprofloxacin,6465,Regression,2,snp,1,loci,mutation
+29358649,m.tuberculosis,moxifloxacin,6465,Regression,3,snp,1,loci,mutation
+29358649,m.tuberculosis,ofloxacin,6465,Regression,4,snp,1,loci,mutation
+29358649,m.tuberculosis,d-cycloserine,6465,Regression,2,snp,2,loci,mutation
+29358649,m.tuberculosis,para-aminosalicylic acid,6465,Regression,1,snp,2,loci,mutation
+30419019,m.tuberculosis,rifampicin,1197,DBGWAS,NA,NA,6,subgraph,mutation
+30419019,m.tuberculosis,isoniazid,1287,DBGWAS,NA,NA,11,subgraph,mutation
+30419019,m.tuberculosis,ethambutol,1041,DBGWAS,NA,NA,23,subgraph,mutation
+30419019,m.tuberculosis,streptomycin,1166,DBGWAS,NA,NA,17,subgraph,mutation
+30419019,m.tuberculosis,kanamycin,671,DBGWAS,NA,NA,15,subgraph,mutation
+30419019,m.tuberculosis,ofloxacin,696,DBGWAS,NA,NA,4,subgraph,mutation
+30419019,m.tuberculosis,ethionamide,420,DBGWAS,NA,NA,16,subgraph,mutation
+30419019,m.tuberculosis,MDR,1211,DBGWAS,NA,NA,5,subgraph,mutation
+30419019,m.tuberculosis,XDR,689,DBGWAS,NA,NA,26,subgraph,mutation
+30419019,s.aureus,methicillin,501,DBGWAS,NA,NA,4,subgraph,mutation
+30419019,s.aureus,ciprofloxacin,991,DBGWAS,NA,NA,163,subgraph,mutation
+30419019,s.aureus,erythromycin,991,DBGWAS,NA,NA,1,subgraph,mutation
+30419019,s.aureus,penicillin,991,DBGWAS,NA,NA,14,subgraph,mutation
+30419019,s.aureus,tetracycline,991,DBGWAS,NA,NA,1,subgraph,mutation
+30419019,s.aureus,fusidic acid,991,DBGWAS,NA,NA,14,subgraph,mutation
+30419019,s.aureus,trimethoprim,323,DBGWAS,NA,NA,51,subgraph,mutation
+30419019,s.aureus,gentamicin,991,DBGWAS,NA,NA,23,subgraph,mutation
+30419019,s.aureus,rifampin,991,DBGWAS,NA,NA,103,subgraph,mutation
+30419019,s.aureus,mupirocin,490,DBGWAS,NA,NA,64,subgraph,mutation
+30419019,p.aeruginosa,amikacin,280,DBGWAS,NA,NA,59,subgraph,mutation
+30419019,p.aeruginosa,levofloxacin,117,DBGWAS,NA,NA,5,subgraph,mutation
+30419019,p.aeruginosa,meropenem,280,DBGWAS,NA,NA,1,subgraph,mutation
+30419019,p.aeruginosa,piperacillin,280,DBGWAS,NA,NA,1,subgraph,mutation
+30419019,p.aeruginosa,colistin,164,DBGWAS,NA,NA,113,subgraph,mutation
+30419019,p.aeruginosa,polymyxin B,117,DBGWAS,NA,NA,53,subgraph,mutation
+30419019,p.aeruginosa,chloramphenicol,103,DBGWAS,NA,NA,125,subgraph,mutation
+30419019,p.aeruginosa,cefepime,280,DBGWAS,NA,NA,0,subgraph,mutation
+30419019,p.aeruginosa,fosfomycin,113,DBGWAS,NA,NA,0,subgraph,mutation
+30419019,p.aeruginosa,levofloxacin,117,bugwas,2,variant,2,gene,mutation
+30419019,p.aeruginosa,levofloxacin,117,PYSEER,224,kmer,2,gene,mutation
+30419019,p.aeruginosa,levofloxacin,117,HAWK,8,kmer,3,gene/non-coding region,mutation
+30419019,m.tuberculosis,streptomycin,1166,bugwas,28,variant,11,gene,mutation
+30419019,m.tuberculosis,streptomycin,1166,PYSEER,85011,kmer,21,gene/non-coding region,mutation
+30419019,m.tuberculosis,streptomycin,1166,HAWK,2038,kmer,23,gene/non-coding region,mutation
+30419019,m.tuberculosis,rifampicin,1197,bugwas,NA,NA,10,feature,mutation
+30419019,m.tuberculosis,isoniazid,1287,bugwas,NA,NA,240,feature,mutation
+30419019,m.tuberculosis,ethambutol,1041,bugwas,NA,NA,67,feature,mutation
+30419019,m.tuberculosis,kanamycin,671,bugwas,NA,NA,105,feature,mutation
+30419019,m.tuberculosis,ofloxacin,696,bugwas,NA,NA,99,feature,mutation
+30419019,m.tuberculosis,ethionamide,420,bugwas,NA,NA,105,feature,mutation
+30419019,p.aeruginosa,amikacin,280,bugwas,NA,NA,850,feature,mutation
+30419019,p.aeruginosa,meropenem,280,bugwas,NA,NA,90,feature,mutation
+30419019,p.aeruginosa,piperacillin,280,bugwas,NA,NA,2,feature,mutation
+30419019,p.aeruginosa,colistin,164,bugwas,NA,NA,19,feature,mutation
+30419019,p.aeruginosa,polymyxin B,117,bugwas,NA,NA,18,feature,mutation
+30419019,p.aeruginosa,chloramphenicol,103,bugwas,NA,NA,292,feature,mutation
+30419019,p.aeruginosa,cefepime,280,bugwas,NA,NA,1,feature,mutation
+30419019,p.aeruginosa,fosfomycin,113,bugwas,NA,NA,0,feature,mutation
+32341568,s.capitis,vancomycin,162,DBGWAS,NA,NA,4,gene,mutation
+31086182,m.tuberculosis,isoniazid,1452,Regression,NA,NA,28,loci,mutation
+31086182,m.tuberculosis,rifampicin,1452,Regression,NA,NA,16,loci,mutation
+31086182,m.tuberculosis,rifabutin,1452,Regression,NA,NA,16,loci,mutation
+31086182,m.tuberculosis,ethambutol,1452,Regression,NA,NA,17,loci,mutation
+31086182,m.tuberculosis,pyrazinamide,1452,Regression,NA,NA,16,loci,mutation
+31086182,m.tuberculosis,kanamycin,1452,Regression,NA,NA,22,loci,mutation
+31086182,m.tuberculosis,amikacin,1452,Regression,NA,NA,24,loci,mutation
+31086182,m.tuberculosis,capreomycin,1452,Regression,NA,NA,12,loci,mutation
+31086182,m.tuberculosis,ethionamide,1452,Regression,NA,NA,12,loci,mutation
+31086182,m.tuberculosis,streptomycin,1452,Regression,NA,NA,10,loci,mutation
+31086182,m.tuberculosis,moxifloxacin,1452,Regression,NA,NA,8,loci,mutation
+28205635,s.pneumoniae,penicillin,1680,PLINK,3589,snp,1109,gene,mutation
+28205635,s.pneumoniae,trimethoprim,1680,PLINK,2931,snp,1036,gene,mutation
+28205635,s.pneumoniae,cotrimoxazole,1680,PLINK,3683,snp,1115,gene,mutation
+28205635,s.pneumoniae,erythromycin,1680,PLINK,2437,snp,943,gene,mutation
+28205635,s.pneumoniae,ciprofloxacin,1680,PLINK,3,snp,3,gene,mutation
+28205635,s.pneumoniae,ofloxacin,1680,PLINK,51,snp,44,gene,mutation
+30922221,m.tuberculosis,amikacin,4408,Regression,NA,NA,1,loci,mutation
+30922221,m.tuberculosis,mdr,4408,Regression,NA,NA,3,loci,mutation
+30922221,m.tuberculosis,ethambutol,4408,Regression,NA,NA,4,loci,mutation
+30922221,m.tuberculosis,pyrazinamide,4408,Regression,NA,NA,2,loci,mutation
+30922221,m.tuberculosis,ofloxacin,4408,Regression,NA,NA,1,loci,mutation
+30922221,m.tuberculosis,xdr,4408,Regression,NA,NA,16,loci,mutation
+30922221,m.tuberculosis,moxifloxacin,4408,Regression,NA,NA,2,loci,mutation
+30922221,m.tuberculosis,fluoroquinolone,4408,Regression,NA,NA,2,loci,mutation
+30922221,m.tuberculosis,ciprofloxacin,4408,Regression,NA,NA,1,loci,mutation
+30922221,m.tuberculosis,isoniazid,4408,Regression,NA,NA,2,loci,mutation
+30922221,m.tuberculosis,streptomycin,4408,Regression,NA,NA,2,loci,mutation
+30922221,m.tuberculosis,kanamycin,4408,Regression,NA,NA,1,loci,mutation
+29401456,n.meningitidis,penicillin,171,treeWAS,162,snp,1,gene,mutation
+29401456,n.meningitidis,penicillin,171,treeWAS,30,snp,4,gene,mutation
+33097713,n.gonorrhoeae,azithromycin,4852,PYSEER,56,unitig,49,gene,mutation
+33097713,n.gonorrhoeae,azithromycin,4852,PYSEER,27,unitig,12,gene,mutation
+33097713,n.gonorrhoeae,azithromycin,4852,PYSEER,18,unitig,13,gene,mutation
+33347430,m.tuberculosis,isoniazid,3501,treeWAS,4,snp,4,gene,mutation
+33347430,m.tuberculosis,rifampicin,3547,treeWAS,14,snp,7,gene,mutation
+33347430,m.tuberculosis,ethambutol,3352,treeWAS,5,snp,5,gene,mutation
+33347430,m.tuberculosis,pyrazinamide,2212,treeWAS,4,snp,4,gene,mutation
+33347430,m.tuberculosis,streptomycin,1489,treeWAS,6,snp,5,gene,mutation
+32122596,s.uberis,oxacillin,265,SEER,NA,NA,4,loci,mutation
+24787619,s.aureus,vancomycin,75,ROADTRIPS,NA,NA,1,loci,mutation
+25373147,e.coli,ampicillin,283,Regression,NA,NA,4,gene presence/absence,gene
+25373147,e.coli,aztreonam,283,Regression,NA,NA,2,gene presence/absence,gene
+25373147,e.coli,ceftazidime,283,Regression,NA,NA,2,gene presence/absence,gene
+25373147,e.coli,cefazolin,283,Regression,NA,NA,2,gene presence/absence,gene
+25373147,e.coli,cefotetan,283,Regression,NA,NA,1,gene presence/absence,gene
+25373147,e.coli,cefotaxime,283,Regression,NA,NA,4,gene presence/absence,gene
+25373147,e.coli,ceftriaxone,283,Regression,NA,NA,6,gene presence/absence,gene
+25373147,e.coli,doxycycline,283,Regression,NA,NA,2,gene presence/absence,gene
+25373147,e.coli,gentamicin,283,Regression,NA,NA,3,gene presence/absence,gene
+25373147,e.coli,trimethoprim-sulfamethoxazole,283,Regression,NA,NA,2,gene presence/absence,gene
+25373147,e.coli,ampicillin-sublactam,283,Regression,NA,NA,2,gene presence/absence,gene
+30510172,n.gonorrhoeae,ciprofloxacin,1102,Regression,22,snp,18,gene/non-coding region,mutation
+30510172,n.gonorrhoeae,azithromycin,1102,Regression,1,snp,1,gene,mutation
+30510172,n.gonorrhoeae,penicillin,1102,Regression,2,snp,1,gene,mutation
+30510172,n.gonorrhoeae,tetracycline,1102,Regression,1,snp,1,gene,mutation
+30510172,n.gonorrhoeae,cefixime,1102,Regression,12,snp,2,gene,mutation
+34486969,s.aureus,MRLM phenotype,283,Scoary,NA,NA,1,gene absence,gene
+27572646,e.coli,ampicillin,241,bugwas,2,kmer,2,gene,mutation
+27572646,e.coli,ciprofloxacin,241,bugwas,4,kmer,4,gene,mutation
+27572646,e.coli,cefazolin,241,bugwas,2,kmer,2,gene,mutation
+27572646,e.coli,cefuroxime,241,bugwas,2,kmer,2,gene/intergenic region,mutation
+27572646,e.coli,ceftriaxone,241,bugwas,2,kmer,2,gene,mutation
+27572646,e.coli,gentamicin,241,bugwas,1,kmer,1,gene,mutation
+27572646,e.coli,tobramycin,241,bugwas,1,kmer,1,gene,mutation
+27572646,k.pneumoniae,cefazolin,176,bugwas,2,kmer,2,gene,mutation
+27572646,k.pneumoniae,cefuroxime,176,bugwas,2,kmer,2,gene,mutation
+27572646,k.pneumoniae,ceftriaxone,176,bugwas,2,kmer,2,gene,mutation
+27572646,k.pneumoniae,ciprofloxacin,176,bugwas,2,kmer,2,gene,mutation
+27572646,k.pneumoniae,gentamicin,176,bugwas,2,kmer,2,gene,mutation
+27572646,k.pneumoniae,tobramycin,176,bugwas,1,kmer,1,gene,mutation
+27572646,m.tuberculosis,ethambutol,1735,bugwas,1,kmer,1,gene,mutation
+27572646,m.tuberculosis,isoniazid,1735,bugwas,1,kmer,1,gene,mutation
+27572646,m.tuberculosis,pyrazinamide,1735,bugwas,2,kmer,1,gene,mutation
+27572646,m.tuberculosis,rifampicin,1735,bugwas,2,kmer,1,gene,mutation
+27572646,s.aureus,ciprofloxacin,992,bugwas,3,kmer,2,gene,mutation
+27572646,s.aureus,erythromycin,992,bugwas,2,kmer,2,gene/intergenic region,mutation
+27572646,s.aureus,fusidic acid,992,bugwas,3,kmer,3,gene,mutation
+27572646,s.aureus,gentamicin,992,bugwas,1,kmer,1,gene,mutation
+27572646,s.aureus,methicillin,992,bugwas,1,kmer,1,gene,mutation
+27572646,s.aureus,penicillin,992,bugwas,1,kmer,1,gene,mutation
+27572646,s.aureus,rifampicin,992,bugwas,1,kmer,1,gene,mutation
+27572646,s.aureus,tetracycline,992,bugwas,1,kmer,1,gene,mutation
+27572646,s.aureus,trimethoprim,992,bugwas,1,kmer,1,gene,mutation
+27572646,e.coli,ampicillin,241,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,e.coli,ciprofloxacin,241,bugwas,4,snp,4,gene,mutation
+27572646,e.coli,cefazolin,241,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,e.coli,cefuroxime,241,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,e.coli,ceftriaxone,241,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,e.coli,gentamicin,241,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,e.coli,tobramycin,241,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,k.pneumoniae,cefazolin,176,bugwas,NA,NA,3,gene presence/absence,gene
+27572646,k.pneumoniae,cefuroxime,176,bugwas,NA,NA,3,gene presence/absence,gene
+27572646,k.pneumoniae,ceftriaxone,176,bugwas,NA,NA,3,gene presence/absence,gene
+27572646,k.pneumoniae,ciprofloxacin,176,bugwas,NA,NA,3,gene presence/absence,gene
+27572646,k.pneumoniae,gentamicin,176,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,k.pneumoniae,tobramycin,176,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,m.tuberculosis,ethambutol,1735,bugwas,2,snp,2,gene,mutation
+27572646,m.tuberculosis,isoniazid,1735,bugwas,1,snp,1,gene,mutation
+27572646,m.tuberculosis,pyrazinamide,1735,bugwas,2,snp,2,gene,mutation
+27572646,m.tuberculosis,rifampicin,1735,bugwas,1,snp,1,gene,mutation
+27572646,s.aureus,ciprofloxacin,992,bugwas,2,snp,2,gene,mutation
+27572646,s.aureus,erythromycin,992,bugwas,NA,NA,3,gene presence/absence,gene
+27572646,s.aureus,fusidic acid,992,bugwas,1,snp,1,gene,mutation
+27572646,s.aureus,fusidic acid,992,bugwas,NA,NA,4,gene presence/absence,gene
+27572646,s.aureus,gentamicin,992,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,s.aureus,methicillin,992,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,s.aureus,penicillin,992,bugwas,NA,NA,1,gene presence/absence,gene
+27572646,s.aureus,rifampicin,992,bugwas,1,snp,1,gene,mutation
+27572646,s.aureus,tetracycline,992,bugwas,NA,NA,2,gene presence/absence,gene
+27572646,s.aureus,trimethoprim,992,bugwas,1,snp,1,gene,mutation
+27572646,s.aureus,trimethoprim,992,bugwas,NA,NA,3,gene presence/absence,gene
+27892531,a.baumannii,carbapenem,122,bugwas,469,kmer,15,gene,mutation
+25101644,s.pneumoniae,penicillin,3085,PLINK,824,snp,78,gene,mutation
+25101644,s.pneumoniae,penicillin,616,PLINK,1551,snp,245,gene,mutation
+25101644,s.pneumoniae,penicillin,3701,PLINK,298,snp,13,gene,mutation
+35225650,e.coli,chlorhexidine,368,Scoary,NA,NA,9,gene presence/absence,gene
