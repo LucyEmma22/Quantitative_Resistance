@@ -9,32 +9,46 @@ library(easyPubMed)
 library(patchwork)
 library(gridExtra)
 library(ggpubr)
-
+library(ggtext)
 #########################################################################################################
 # GWAS
 #########################################################################################################
 
-data<-read.csv("GWAS_data.csv") %>% filter(value!=0)
+GWAS_data<-read.csv("GWAS_data.csv") %>% filter(value!=0)
 
 #########################################################################################################
 # GWAS GENES AND MUTATIONS
 
-mutations<-filter(data,gene_mutation=="mutation",value!=0)
-genes<-filter(data,gene_mutation=="gene",value!=0)
+GWAS_mutations<-filter(GWAS_data,gene_mutation=="mutation",value!=0)
+GWAS_genes<-filter(GWAS_data,gene_mutation=="gene",value!=0)
 
-gwas_genes_mutations<-ggplot(data,aes(x=log10(value),y=method))+
+gwas_genes_mutations<-ggplot(GWAS_data,aes(x=log10(value),y=method))+
   geom_boxplot(aes(fill=gene_mutation),alpha=0.8)+ 
   scale_fill_manual(name="",values=c("mediumseagreen","mediumpurple"),labels=c("Gene","Mutation"))+
   theme_light()+ 
   theme(legend.position="none")+
   labs(x="Log10 (Number of Genes/Mutations)",y="GWAS Method")+
   theme(plot.title = element_text(hjust = 0.5))+
-  geom_vline(xintercept=log10(mean(genes$value,na.rm=T)),colour="mediumseagreen",linetype="dashed",size=1)+
-  geom_vline(xintercept=log10(mean(mutations$value,na.rm=T)),colour="mediumpurple",linetype="dashed",size=1)+
+  geom_vline(xintercept=log10(mean(GWAS_genes$value,na.rm=T)),colour="mediumseagreen",linetype="dashed")+
+  geom_vline(xintercept=log10(mean(GWAS_mutations$value,na.rm=T)),colour="mediumpurple",linetype="dashed")
   #geom_text(data=data.frame(x=2.9,y=10.2,lab=paste0("Mean Number of Genes = ",round(mean(genes$value,na.rm=T),1))),aes(x=x,y=y,label=lab),colour="mediumseagreen",hjust=1,size=4,angle=90)+
   #geom_text(data=data.frame(x=2.6,y=10.2,lab=paste0("Mean Number of Mutations = ",round(mean(mut$value,na.rm=T),1))),aes(x=x,y=y,label=lab),colour="mediumpurple",hjust=1,size=4,angle=90)+
-  geom_label(data=data.frame(x=3,y=9,lab=paste0("Genes: Mean =  ",round(mean(genes$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8)+
-  geom_label(data=data.frame(x=3,y=10,lab=paste0("Mutations: Mean = ",round(mean(mutations$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8)
+  #geom_richtext(data=data.frame(x=2.5,y=10,lab=paste0("Genes: Mean =  ",round(mean(genes$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8,angle=90)+
+  #geom_richtext(data=data.frame(x=3,y=10,lab=paste0("Mutations: Mean = ",round(mean(mutations$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8,angle=90)
+
+GWAS_genes_plot<-ggplot(GWAS_genes,aes(x=log10(value),y=method))+
+  geom_boxplot(fill="mediumseagreen",alpha=0.8)+ 
+  theme_light()+ 
+  labs(title="Predicted Resistance Genes (bGWAS)",x="Log10 (Number of Genes)",y="bGWAS Method")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  geom_vline(xintercept=log10(mean(GWAS_genes$value,na.rm=T)),colour="mediumseagreen",linetype="dashed")
+
+GWAS_mutations_plot<-ggplot(GWAS_mutations,aes(x=log10(value),y=method))+
+  geom_boxplot(fill="mediumpurple",alpha=0.8)+ 
+  theme_light()+ 
+  labs(title="Predicted Resistance Mutations (bGWAS)",x="Log10 (Number of Mutations)",y="bGWAS Method")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  geom_vline(xintercept=log10(mean(GWAS_mutations$value,na.rm=T)),colour="mediumpurple",linetype="dashed")
 
 #########################################################################################################
 # HERITABILITY
@@ -51,7 +65,7 @@ heritability_plot<-ggplot(heritability,aes(x=value,y=antibiotic,fill=factor(Heri
 #########################################################################################################
 # Distribution of Sample Sizes
 
-ggplot(data,aes(log10(n)))+
+ggplot(GWAS_data,aes(log10(n)))+
   geom_histogram(bins=20,boundary=0,fill="grey")+
   theme_light()+
   labs(title="GWAS (Distribution of Sample Sizes)",x="Log10 (Sample Size)",y="Frequency")+
@@ -76,10 +90,10 @@ for (i in 1:length(files)){
 gene_resfinder<-ggplot(gene_nos,aes(x=log10(genes_mutated),y=antibiotic))+
   geom_bar(stat="identity",colour="black",fill="mediumseagreen",alpha=0.8)+ 
   theme_light()+ 
-  labs(x="Log10 (Number of Genes)",y="Antibiotic Class")+ 
+  labs(title="Known Resistance Genes (ResFinder)",x="Log10 (Number of ARGs)",y="Antibiotic")+ 
   theme(plot.title = element_text(hjust = 0.5))+
-  geom_vline(xintercept=log10(mean(gene_nos$genes_mutated)),colour="mediumseagreen",linetype="dashed")+
-  geom_label(data=data.frame(x=3.5,y=16,lab=paste0("Genes: Mean =  ",round(mean(gene_nos$genes_mutated,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8)
+  geom_vline(xintercept=log10(mean(gene_nos$genes_mutated)),colour="mediumseagreen",linetype="dashed")
+  #geom_richtext(data=data.frame(x=3,y=17,lab=paste0("Genes: Mean =  ",round(mean(gene_nos$genes_mutated,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8,angle=90)
   
 # RESFINDER GENES VS PUBMED SEARCH
 
@@ -100,9 +114,12 @@ title<-paste0("Estimate = ", round(m,2), ",  P-Value = ",round(summary(model)$co
 gene_resfinder_pubmed<-ggplot(gene_nos,aes(x=log10(pubmed),y=log10(genes_mutated)))+
   geom_point(colour="mediumseagreen")+
   theme_light()+
-  labs(x="Log10 (Number of Search Results)", y="Log10 (Number of Genes)")+
-  geom_line(data=df,aes(x=x,y=y))+
-  geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0)
+  labs(x="Log10 (Number of PubMed Search Results)", y="Log10 (Number of ARGs)")+
+  geom_line(data=df,aes(x=x,y=y),colour="mediumseagreen")
+  #geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0,size=3)
+
+setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+write.csv(gene_nos,file="ResFinder_ARGs_and_PubMed_Search_Results.csv")
 
 # RESFINDER MUTATIONS
 
@@ -130,9 +147,9 @@ mut_nos$antibiotic<-gsub("Para-aminosalicyclic acid","Para-aminosalicylic acid",
 mut_resfinder<-ggplot(mut_nos,aes(x=log10(mutations),y=str_wrap(bacteria,5)))+
   geom_boxplot(fill="mediumpurple",alpha=0.8)+ 
   theme_light()+ 
-  labs(x="Log10 (Number of Mutations)",y="Bacteria")+ 
-  geom_vline(xintercept=log10(mean(mut_nos$mutations)),colour="mediumpurple",linetype="dashed")+
-  geom_label(data=data.frame(x=2.5,y=10,lab=paste0("Mutations: Mean =  ",round(mean(mut_nos$mutations,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8)
+  labs(title="Known Resistance Mutations (PointFinder)",x="Log10 (Number of Chromosomal Mutations)",y="Bacterial Species")+ 
+  geom_vline(xintercept=log10(mean(mut_nos$mutations)),colour="mediumpurple",linetype="dashed")
+  #geom_richtext(data=data.frame(x=2.5,y=10,lab=paste0("Mutations: Mean =  ",round(mean(mut_nos$mutations,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8,angle=90)
 
 # RESFINDER MUTATIONS VS PUBMED SEARCH 
 
@@ -153,14 +170,37 @@ title<-paste0("Estimate = ", round(m,2), ",  nP-Value = ",round(summary(model)$c
 mut_resfinder_pubmed<-ggplot(mut_nos,aes(log10(pubmed),log10(mutations)))+
   geom_point(colour="mediumpurple")+
   theme_light()+
-  labs(x="Log10 (Number of Search Results)", y="Log10 (Number of Mutations)")+
-  geom_line(data=df,aes(x=x,y=y))+
-  geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0)
+  labs(x="Log10 (Number of PubMed Search Results)", y="Log10 (Number of Chromosomal Mutations)")+
+  geom_line(data=df,aes(x=x,y=y),colour="mediumpurple")
+  #geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0,size=3)
+
+setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+write.csv(gene_nos,file="PointFinder_Mutations_and_PubMed_Search_Results.csv")
 
 #########################################################################################################
 # ARRANGE FIGURE
 #########################################################################################################
 
-A <- gwas_genes_mutations / heritability_plot + plot_annotation(title = 'Predicted Genes/Mutations (bGWAS)',theme = theme(plot.title = element_text(hjust=0.5)))
-B <- mut_resfinder  + gene_resfinder + mut_resfinder_pubmed + gene_resfinder_pubmed  + plot_annotation(title = 'Known Genes/Mutations (ResFinder)',theme = theme(plot.title = element_text(hjust=0.5)))
-A | B
+A <- mut_resfinder  + gene_resfinder + mut_resfinder_pubmed + gene_resfinder_pubmed
+B <- (GWAS_mutations_plot + GWAS_genes_plot) / heritability_plot 
+A|B
+
+#########################################################################################################
+# DISPLAY MEAN/MIN/MAX 
+#########################################################################################################
+
+heritability_2 <- heritability %>% spread(Heritability,value) %>% mutate(h2_total=h2_missing+h2_explained) %>% mutate(prop_explained=h2_explained/h2_total)
+
+# Rounded
+print(data.frame(Name=c("GWAS Mutations","GWAS Genes","ResFinder Genes","ResFinder Mutations","Total Heritability","Proprotion Heritability Explained"),
+                 Mean=c(round(mean(GWAS_mutations$value,na.rm=T),2),round(mean(GWAS_genes$value,na.rm=T),2),round(mean(gene_nos$genes_mutated),2),round(mean(mut_nos$mutations),2),round(mean(heritability_2$h2_total),3),round(mean(heritability_2$prop_explained),3)),
+                 Min=c(min(GWAS_mutations$value,na.rm=T),min(GWAS_genes$value,na.rm=T),min(gene_nos$genes_mutated),min(mut_nos$mutations),min(heritability_2$h2_total),round(min(heritability_2$prop_explained),3)),
+                 Max=c(max(GWAS_mutations$value,na.rm=T),max(GWAS_genes$value,na.rm=T),max(gene_nos$genes_mutated),max(mut_nos$mutations),max(heritability_2$h2_total),round(max(heritability_2$prop_explained),3))
+))
+
+# Unrounded
+print(data.frame(Name=c("GWAS Mutations","GWAS Genes","ResFinder Genes","ResFinder Mutations","Total Heritability","Proprotion Heritability Explained"),
+                 Mean=c(mean(GWAS_mutations$value,na.rm=T),mean(GWAS_genes$value,na.rm=T),mean(gene_nos$genes_mutated),mean(mut_nos$mutations),mean(heritability_2$h2_total),mean(heritability_2$prop_explained)),
+                 Min=c(min(GWAS_mutations$value,na.rm=T),min(GWAS_genes$value,na.rm=T),min(gene_nos$genes_mutated),min(mut_nos$mutations),min(heritability_2$h2_total),min(heritability_2$prop_explained)),
+                 Max=c(max(GWAS_mutations$value,na.rm=T),max(GWAS_genes$value,na.rm=T),max(gene_nos$genes_mutated),max(mut_nos$mutations),max(heritability_2$h2_total),max(heritability_2$prop_explained))
+))              
