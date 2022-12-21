@@ -1,0 +1,23 @@
+Bacteria2,Third_generation_cephalosporins,Fourth_generation_cephalosporins,Aminoglycosides,Aminopenicillin,Anti_pseudomonal_penicillin,Beta_lactam,Carbapenems,Fluoroquinolones,Macrolides,Meticillin,Isoniazid,Rifampicin,Penicillin,Trimethoprim_sulfamethoxazole,Vancomycin
+Acinetobacter baumannii,6860,3280,10400,,13300,811,57700,40000,,,,,,,
+Citrobacter spp,1840,1340,411,,2170,,2300,2510,,,,,,,
+Enterobacter spp,,5320,3070,,9950,,15300,7800,,,,,,4650,
+Enterococcus faecalis,,,,,,,,26800,,,,,,,3420
+Enterococcus faecium,,,,,,,,37200,,,,,,,14300
+Other enterococci,,,,,,,,12200,,,,,,,2220
+Escherichia coli,59900,,11700,10500,,21300,29500,56000,,,,,,30200,
+Group A Streptococcus,,,,,,,,,3630,,,,799,,
+Group B Streptococcus,,,,,,,,11500,13500,,,,,,
+Haemophilus influenzae,2470,,,4290,,,,,,,,,,,
+Klebsiella pneumoniae,50100,,26300,,,7930,55700,29000,,,,,,23500,
+Morganella spp,168,154,,,,,,427,,,,,,,
+Mycobacterium tuberculosis,,,,,,,,,,,11600,3350,,,
+Proteus spp,4730,,887,1330,,,,2970,,,,,,1620,
+Pseudomonas aeruginosa,10400,4370,3010,,10300,,38100,18300,,,,,,,
+Salmonella enterica serotype Paratyphi,,,,,,,,4040,,,,,,,
+Salmonella enterica serotype Typhi,,,,,,,,17200,,,,,,,
+Non-typhoidal Salmonella,,,,,,,,5620,,,,,,,
+Serratia spp,1100,2610,953,,,,2450,1080,,,,,,,
+Shigella spp,,,,,,,,5990,,,,,,,
+Staphylococcus aureus,,,,,2480,,,15900,19600,121000,,,,18700,3120
+Streptococcus pneumonia,3300,,,,,2040,41900,11200,12500,,,,12400,38700,

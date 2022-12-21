@@ -1,0 +1,18 @@
+Species,0.002,0.004,0.008,0.016,0.03,0.06,0.125,0.25,0.5,1,2,4,8,16,32,64,128,256,512,Distributions ,Observations,(T)ECOFF,CI
+Enterococcus faecalis ATCC 29212,0,0,0,0,0,0,0,0,2,35,6,0,0,0,0,0,0,0,0,2,43,ID,
+Escherichia coli,0,0,0,0,102,256,153,67,37,21,10,5,9,3,59,0,0,0,0,2,722,ID,
+Haemophilus influenzae,1,8,35,25,19,10,4,3,0,0,0,0,0,0,0,0,0,0,0,1,105,-,
+Klebsiella oxytoca,0,0,0,0,14,44,65,63,27,6,2,3,3,1,22,0,0,0,0,1,250,ID,
+Klebsiella pneumoniae,0,0,0,0,43,301,175,53,38,8,5,4,11,4,67,0,0,0,0,2,709,ID,
+Staphylococcus aureus,0,0,0,0,5,24,925,5621,3358,1520,448,2,6,0,0,0,0,0,0,4,11909,-1,0.25 - 2
+Staphylococcus aureus ATCC 29213,0,0,0,0,0,0,0,43,3,0,0,0,0,0,0,0,0,0,0,2,46,ID,
+Staphylococcus aureus MRSA,0,0,0,0,5,18,689,4422,3101,1491,447,2,6,0,0,0,0,0,0,3,10181,-1,0.25 - 2
+Staphylococcus aureus MSSA,0,0,0,0,0,6,246,1169,61,11,1,0,0,0,0,0,0,0,0,2,1494,((1)),0.25 - 2
+Staphylococcus epidermidis,0,0,0,0,0,0,30,36,15,1,0,0,0,0,0,0,0,0,0,1,82,ID,
+Staphylococcus haemolyticus,0,0,0,0,0,0,2,14,3,4,7,1,0,0,0,0,0,0,0,1,31,ID,
+Staphylococcus hominis,0,0,0,0,6,4,14,4,3,0,0,0,0,0,0,0,0,0,0,1,31,ID,
+Staphylococcus lugdunensis,0,0,0,0,0,2,9,20,0,0,0,0,0,0,0,0,0,0,0,1,31,ID,
+Staphylococcus saprophyticus,0,0,0,0,0,0,7,17,3,4,0,0,0,0,0,0,0,0,0,1,31,ID,
+Staphylococcus warneri,0,0,0,0,2,15,12,0,2,0,0,0,0,0,0,0,0,0,0,1,31,ID,
+Streptococcus agalactiae,0,7,22,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,32,ID,
+Streptococcus pneumoniae,1,2,10,4,7,5,26,14,28,1,1,0,0,0,0,0,0,0,0,1,99,-,

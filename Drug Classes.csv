@@ -1,0 +1,154 @@
+class,class1,class2,ATC_code,Antibiotic
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),Animals,Apramycin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB01,Tobramycin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB03,Gentamicin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB04,Kanamycin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB05,Neomycin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB06,Amikacin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Other aminoglycosides (J01GB),J01GB07,Netilmicin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Streptomycins (J01GA),J01GA01,Streptomycin
+Aminoglycosides,AMINOGLYCOSIDE ANTIBACTERIALS (J01G),Streptomycins (J01GA),J01GA01,Dihydrostreptomycin
+Amphenicols,AMPHENICOLS (J01B),Amphenicols (J01BA),Animals,Florfenicol
+Amphenicols,AMPHENICOLS (J01B),Amphenicols (J01BA),J01BA01,Chloramphenicol
+Carboxylic acids,ANTIBIOTICS FOR TOPICAL USE (D06A),Other antibiotics for topical use (D06AX),D06AX09,Mupirocin
+Pleuromutilins,ANTIBIOTICS FOR TOPICAL USE (D06A),Other antibiotics for topical use (D06AX),D06AX13,Retapamulin
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Amphotericin B
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Anidulafungin
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Fluconazole
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Flucytosine
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Isavuconazole
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Itraconazole
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Micafungin
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Posaconazole
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Voriconazole
+Antifungal,ANTIFUNGAL,Antifungal,Antifungal,Secnidazole
+Antiprotozoan,ANTIPROTOZOAL,Antiprotozoan,Antiprotozoan,Narasin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Beta-lactamase resistant penicillins (J01CF),J01CF02,Cloxacillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Beta-lactamase resistant penicillins (J01CF),J01CF04,Oxacillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Beta-lactamase sensitive penicillins (J01CE),J01CE01,Benzylpenicillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Beta-lactamase sensitive penicillins (J01CE),J01CE02,Phenoxymethylpenicillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)","Combinations of penicillins, incl. beta-lactamase inhibitors (J01CR)",J01CR01,Ampicillin-sulbactam (fixed)
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)","Combinations of penicillins, incl. beta-lactamase inhibitors (J01CR)",J01CR01,Ampicillin-sulbactam (ratio)
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)","Combinations of penicillins, incl. beta-lactamase inhibitors (J01CR)",J01CR02,Amoxicillin-clavulanic acid (fi
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)","Combinations of penicillins, incl. beta-lactamase inhibitors (J01CR)",J01CR03,Ticarcillin-clavulanic acid
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)","Combinations of penicillins, incl. beta-lactamase inhibitors (J01CR)",J01CR05,Piperacillin-tazobactam
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA01,Ampicillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA04,Amoxicillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA11,Mecillinam
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA12,Piperacillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA13,Ticarcillin
+Penicillins,"BETA-LACTAM ANTIBACTERIALS, PENICILLINS (J01C)",Penicillins with extended spectrum (J01CA),J01CA17,Temocillin
+Antimycobacterials,DRUGS FOR TREATMENT OF lepra (J04B),Drugs for treatment of lepra (J04BA),JO4BA01,Clofazimine
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Aminosalicylic acid and derivatives (J04AA),J04AA01,Paraaminosalicylic acid (PAS)
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Antibiotics (J04AB),J04AB01,Cycloserine
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Antibiotics (J04AB),J04AB02,Rifampicin
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Other drugs for treatment of tuberculosis (J04AK),J04AK01,Pyrazinamide
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Other drugs for treatment of tuberculosis (J04AK),J04AK02,Ethambutol
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Other drugs for treatment of tuberculosis (J04AK),J04AK05,Bedaquiline
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Other drugs for treatment of tuberculosis (J04AK),J04AK06,Delamanid
+Antimycobacterials,DRUGS FOR TREATMENT OF TUBERCULOSIS (J04A),Thiocarbamide derivatives (J04AD),J04AD03,Ethionamide
+Macrolides,INTESTINAL ANTIINFECTIVES (A07A),Antibiotics (A07AA),A07AA12,Fidaxomicin
+Lincosamides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Lincosamides (J01FF),J01FF01,Clindamycin
+Lincosamides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Lincosamides (J01FF),J01FF02,Lincomycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),Animals,Tildipirosin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),Animals,Tilmicosin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),Animals,Tulathromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),Animals,Tylosin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA01,Erythromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA02,Spiramycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA06,Roxithromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA09,Clarithromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA10,Azithromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),J01FA15,Telithromycin
+Macrolides,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Macrolides (J01FA),New,Gamithromycin
+Streptogramins,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Streptogramins (J01FG),Animals,Virginiamycin
+Streptogramins,"MACROLIDES, LINCOSAMIDES AND STREPTOGRAMINS (J01F)",Streptogramins (J01FG),J01FG02,Quinupristin-dalfopristin
+Beta-lactamase inhibitors,NA,NA,NA,Clavulanic acid
+Beta-lactamase inhibitors,NA,NA,NA,Sulbactam
+Orthosomycins,NA,NA,Animals,Avilamycin
+Pleuromutilins,NA,NA,Animals,Tiamulin
+Aminocyclitol,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX04,Spectinomycin
+Epoxides,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX01,Fosfomycin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA01,Vancomycin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA01,Norvancomycin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA02,Teicoplanin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA03,Telavancin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA03,Telavancin (w P80)
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA04,Dalbavancin
+Glycopeptides,OTHER ANTIBACTERIALS (J01X),Glycopeptide antibacterials (J01XA),J01XA05,Oritavancin (with P80)
+Imidazoles,OTHER ANTIBACTERIALS (J01X),Imidazole derivatives (J01XD),J01XD01,Metronidazole
+Lipopeptides,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX09,Daptomycin
+Nitrofurans,OTHER ANTIBACTERIALS (J01X),Nitrofuran derivatives (J01XE),J01XE01,Nitrofurantoin
+Oxazolidinones,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX08,Linezolid 
+Oxazolidinones,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX11,Tedizolid
+Pleuromutilins,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX12,Lefamulin
+Polymyxins,OTHER ANTIBACTERIALS (J01X),Polymyxins (J01XB),J01XB01,Colistin
+Polypeptides,OTHER ANTIBACTERIALS (J01X),Other antibacterials (J01XX),J01XX10,Bacitracin
+Steroins,OTHER ANTIBACTERIALS (J01X),Steroin antibacterials (J01XC),J01XC01,Fusidic acid
+Carbapenems,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Carbapenems (J01DH),J01DH02,Meropenem
+Carbapenems,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Carbapenems (J01DH),J01DH51,Imipenem
+Carbapenems,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Carbapenems (J01DH),J01DH56,Imipenem-relebactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Carbapenems (J01DH),J01DH03,Ertapenem
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Carbapenems (J01DH),J01DH04,Doripenem
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DB01,Cefalexin
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DB02,Cefaloridine
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DB03,Cefalothin
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DB04,Cefazolin
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DB05,Cefadroxil
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DC01,Cefoxitin
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DC02,Cefuroxime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DC04,Cefaclor
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),First-generation cephalosporins (J01DB),J01DC08,Loracarbef
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),Animals,Cefquinome
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE01,Cefepime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE01,Cefepime-clavulanate
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE01,Cefepime-enmetazobactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE01,Cefepime-tazobactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE01,Cefepime-zidebactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Fourth-generation cephalosporins (J01DE),J01DE02,Cefpirome
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI01,Ceftobiprole
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI02,Ceftaroline
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI03,Faropenem
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI04,Cefiderocol
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI54,Ceftolozane
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Other cephalosporins and penems (J01DI),J01DI54,Ceftolozane-tazobactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),Animals,Ceftiofur
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD01,Cefotaxime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD02,Ceftazidime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD04,Ceftriaxone
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD08,Cefixime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD12,Cefoperazone
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD13,Cefpodoxime
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD14,Ceftibuten
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD15,Cefdinir
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD51,Cefotaxime-clavulanate
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD52,Ceftazidime-avibactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD52,Ceftazidime-clavulanate
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD62,Cefoperazone-sulbactam
+Cephalosporins,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Third-generation cephalosporins (J01DD),J01DD64,Cefpodoxime-clavulanic acid
+Monobactams,OTHER BETA LACTAM ANTIBACTERIALS (J01D),Monobactams (J01DF),J01DF01,Aztreonam
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),Animals,Enrofloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),Investigational,Clinafloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA01,Ofloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA02,Ciprofloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA03,Pefloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA06,Norfloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA09,Sparfloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA12,Levofloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA14,Moxifloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA15,Gemifloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA16,Gatifloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA21,Sitafloxacin
+Fluoroquinolones,QUINOLONE ANTIBACTERIALS (J01M),Fluoroquinolones (J01MA),J01MA23,Delafloxacin
+Quinolones,QUINOLONE ANTIBACTERIALS (J01M),Other quinolones (J01MB),J01MB02,Nalidixic acid 
+Quinolones,QUINOLONE ANTIBACTERIALS (J01M),Other quinolones (J01MB),J01MB07,Flumequine
+Sulfonamides and Trimethoprim,SULFONAMIDES AND TRIMETHOPRIM (J01E),"Combinations of sulfonamides and trimethoprim, incl. derivatives (J01EE)",J01EE01,Trimethoprim-sulfamethoxazole 
+Sulfonamides and Trimethoprim,SULFONAMIDES AND TRIMETHOPRIM (J01E),Intermediate-acting sulfonamides (J01EC),J01EC01,Sulfamethoxazole
+Sulfonamides and Trimethoprim,SULFONAMIDES AND TRIMETHOPRIM (J01E),Trimethoprim and derivatives (J01EA),J01EA01,Trimethoprim
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA02,Doxycycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA06,Oxytetracycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA07,Tetracycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA08,Minocycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA12,Tigecycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA13,Eravacycline
+Tetracyclines,TETRACYCLINES (JO1A),Tetracyclines (JO1AA),J01AA15,Omadacycline

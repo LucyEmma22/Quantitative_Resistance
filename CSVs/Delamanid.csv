@@ -1,0 +1,3 @@
+Species,0.002,0.004,0.008,0.016,0.03,0.06,0.125,0.25,0.5,1,2,4,8,16,32,64,128,256,512,Distributions ,Observations,(T)ECOFF,CI
+Mycobacterium tuberculosis 7H11,93,316,215,63,5,0,0,0,1,1,0,1,1,0,0,0,0,0,0,14,696,0.03,0.008 - 0.03
+Mycobacterium tuberculosis MGIT 960,1,11,60,50,31,2,0,3,0,0,0,0,0,4,0,0,0,0,0,2,162,ID,

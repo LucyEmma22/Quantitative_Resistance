@@ -1,0 +1,6 @@
+Species,0.002,0.004,0.008,0.016,0.03,0.06,0.125,0.25,0.5,1,2,4,8,16,32,64,128,256,512,Distributions ,Observations,(T)ECOFF,CI
+Aspergillus flavus EUCAST,0,0,0,0,0,0,1,5,44,285,96,3,0,0,0,0,0,0,0,6,434,2,
+Aspergillus fumigatus EUCAST,0,0,0,0,0,1,2,21,199,174,12,9,5,3,0,0,0,0,0,5,426,2,
+Aspergillus nidulans EUCAST,0,0,0,0,1,19,95,36,5,0,0,0,0,0,0,0,0,0,0,3,156,-0.25,
+Aspergillus niger EUCAST,0,0,0,0,0,0,0,3,8,53,118,35,7,0,0,0,0,0,0,5,224,4,
+Aspergillus terreus EUCAST,0,0,0,0,0,1,8,83,165,75,9,1,7,0,0,0,0,0,0,4,349,-1,
