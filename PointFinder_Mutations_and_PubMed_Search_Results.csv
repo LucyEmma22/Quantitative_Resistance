@@ -1,18 +1,18 @@
 "","antibiotic","genes_mutated","pubmed"
-"1","Aminoglycoside",265,8517
-"2","Beta-lactam",2013,27777
-"3","Colistin",56,3971
+"1","Aminoglycoside",265,8532
+"2","Beta-lactam",2013,27813
+"3","Colistin",56,3985
 "4","Disinfectant",17,1958
-"5","Fosfomycin",41,1190
-"6","Fusidic acid",3,613
-"7","Glycopeptide",44,5201
-"8","Macrolide",176,7461
-"9","Nitroimidazole",14,914
-"10","Oxazolidinone",25,1624
-"11","Phenicol",48,229
-"12","Pseudomonic acid",3,683
-"13","Quinolone",128,9944
-"14","Rifampicin",10,4700
-"15","Sulphonamide",54,2966
-"16","Tetracycline",148,11946
-"17","Trimethoprim",109,4991
+"5","Fosfomycin",41,1193
+"6","Fusidic acid",3,614
+"7","Glycopeptide",44,5205
+"8","Macrolide",176,7481
+"9","Nitroimidazole",14,915
+"10","Oxazolidinone",25,1626
+"11","Phenicol",48,230
+"12","Pseudomonic acid",3,684
+"13","Quinolone",128,9958
+"14","Rifampicin",10,4710
+"15","Sulphonamide",54,2969
+"16","Tetracycline",148,11958
+"17","Trimethoprim",109,4994

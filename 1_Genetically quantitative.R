@@ -56,7 +56,7 @@ GWAS_mutations_plot<-ggplot(GWAS_mutations,aes(x=log10(value),y=method))+
 heritability<-read.csv("heritability.csv")
 heritability_plot<-ggplot(heritability,aes(x=value,y=antibiotic,fill=factor(Heritability, levels=c("h2_missing","h2_explained"))))+
   geom_bar(stat="identity",colour="black",position="stack")+
-  scale_fill_manual(name=NULL,values=c("white","dodgerblue"),labels=c("Missing","Explained"))+
+  scale_fill_manual(name=NULL,values=c("white","grey"),labels=c("Missing","Explained"))+
   theme_light()+
   labs(y="Antibiotic",x="Heritability")+
   facet_wrap(~bacteria,scales="free")+
@@ -183,7 +183,8 @@ write.csv(gene_nos,file="PointFinder_Mutations_and_PubMed_Search_Results.csv")
 
 A <- mut_resfinder  + gene_resfinder + mut_resfinder_pubmed + gene_resfinder_pubmed
 B <- (GWAS_mutations_plot + GWAS_genes_plot) / heritability_plot 
-A|B
+patchwork <- A|B 
+patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
 
 #########################################################################################################
 # DISPLAY MEAN/MIN/MAX 

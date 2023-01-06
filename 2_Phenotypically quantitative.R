@@ -338,7 +338,7 @@ burden_violin<-ggplot(data=bimodality_results2,aes(x=prop_overlap,y=str_wrap(gro
   geom_boxplot(fill="mediumpurple",alpha=0.5,width=0.15,colour="mediumpurple4")+
   geom_jitter(size=0.5,colour="mediumpurple4")+
   theme_light()+
-  geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=1)+
+  #geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=1)+
   labs(x="Overlap Proportion",y=NULL)
 
 burden<-bimodality_results2 %>% dplyr::select(Bacteria2,Antibiotic2,prop_overlap,burden) %>% na.omit() %>%  mutate(Bacteria_Antibiotic=paste0(Bacteria2,"_",Antibiotic2)) %>% 
@@ -352,118 +352,36 @@ lab<-data.frame(x=max(burden$mean_overlap),y=max(log10(burden$burden))+0.1,label
 burden_scatter<-ggplot(data=burden,aes(mean_overlap,log10(burden)))+
   geom_point(colour="mediumpurple4")+
   theme_light()+
-  geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=0)+
+  #geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=0)+
   labs(x="Overlap Proportion",y="log10 (Attributable Deaths)")+
   ylim(2.5,5.3)
 
-burden_scatter | burden_violin
-
 ################################################################################################################################################
 # LINEAR MODELS
-library(lme4)
 library(MCMCglmm)
 ################################################################################################################################################
 
-model_data<-bimodality_results %>% 
-  left_join((data_ECOFF %>% dplyr::select(Bacteria_Antibiotic,class,class1,class2) %>% distinct()),by="Bacteria_Antibiotic") %>% 
+bimodality_results3<-bimodality_results %>% 
   separate(Bacteria_Antibiotic, c("Bacteria", "Antibiotic"), sep="_") %>% 
-  separate (Bacteria,c("genus","species"),sep=" ",extra="merge") %>% 
-  mutate(genus=gsub(",", "",genus)) %>% 
-  dplyr::select(class,Antibiotic,genus,species,prop_overlap) %>% 
-  na.omit() %>% 
   mutate(logit_prop_overlap=ifelse(prop_overlap!=1,logit(prop_overlap),6))
-
-model<-lmer(logit_prop_overlap~1+(1|species)+(1|Antibiotic),data=model_data)
-model<-lmer(logit_prop_overlap~1+(1|genus)+(1|class),data=model_data)
 
 nitt = 500000
 burnin = 100000
 thin = 200
-mcmc_model <- MCMCglmm(logit_prop_overlap ~ 1, random = ~species + Antibiotic, data = model_data,nitt=nitt,burnin=burnin,thin=thin)
-summary(mcmc_model)
+mcmc_model <- MCMCglmm(logit_prop_overlap ~ 1, random = ~Bacteria + Antibiotic, data = bimodality_results3,nitt=nitt,burnin=burnin,thin=thin)
+save(mcmc_model,file="mcmc_model.Rdata")
 
 library(tibble)
 fixed_posterior<-as.data.frame(summary(mcmc_model)$solutions)
 random_variance<-rbind(as.data.frame(summary(mcmc_model)$Rcovariances),as.data.frame(summary(mcmc_model)$Gcovariances)) %>% rownames_to_column()
 random_variance$rowname <- factor(random_variance$rowname, levels = random_variance$rowname)
-#ggplot(data=random_variance,aes(x=rowname,y=post.mean))+geom_bar(stat="identity")+theme_light()+labs(x="Predictor",y="Variance")+geom_errorbar(aes(ymin=`l-95% CI`, ymax=`u-95% CI`,group=rowname), width=0.2,position=position_dodge(0.9))
-grid.arrange(
-  ggplot(data=random_variance,aes(x=1,y=post.mean/sum(post.mean),fill=rowname))+
-    geom_bar(stat="identity",position="stack",alpha=0.8)+
-    theme_light()+
-    theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
-    labs(x=NULL,y="Proportion Variance Explained",fill="Predictor")+
-    scale_fill_manual(values=c("grey","mediumpurple","mediumseagreen"),labels=c("Residual","Bacteria","Antibiotic")),
-ggplot(na.omit(blah),aes(prop_overlap,genus))+
-  geom_boxplot(fill="mediumpurple",colour="black",alpha=0.8)+
+
+mcmc_model_plot<-ggplot(data=random_variance,aes(x=1,y=post.mean/sum(post.mean),fill=rowname))+
+  geom_bar(stat="identity",position="stack",alpha=0.8)+
   theme_light()+
-  labs(title="Bacterial Genus",x=NULL,y=NULL)+
-  theme(plot.title = element_text(hjust = 0.5)),
-ggplot(na.omit(blah),aes(prop_overlap,class))+
-  geom_boxplot(fill="mediumseagreen",colour="black",alpha=0.8)+
-  theme_light()+
-  labs(title="Antibiotic Class",x=NULL,y=NULL)+
-  theme(plot.title = element_text(hjust = 0.5)),
-nrow=1,bottom="Overlap Proportion")
+  theme(axis.text.x=element_blank(),axis.ticks.x=element_blank())+
+  labs(x=NULL,y="Proportion Variance Explained",fill="Predictor")+
+  scale_fill_manual(values=c("grey","mediumpurple","mediumseagreen"),labels=c("Residual","Bacteria","Antibiotic"))
 
-save(mcmc_model,file="mcmc_model.Rdata")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Plots
-
-if (is.null(b)==F){
-  
-  ECOFF<-unique(data$ECOFF)
-  X<-filter(X,freq!=0)
-  X_reinstate_df<-data.frame(X_reinstate)
-  X_reinstate_df$colour<-ifelse(X_reinstate_df$X_reinstate<=log2(ECOFF),"dodgerblue","firebrick")
-  density_bimodal<-data.frame(x=density(b)$x,y_all=density(b)$y,y_s=density(b)$comp[,1],y_r=density(b)$comp[,2])
-  density_unimodal<-data.frame(x=density(u)$x,y=density(u)$y)
-  
-  bimodal_plots[[i]]<-ggplot(data=X_reinstate_df,aes(x=X_reinstate)) +
-    geom_histogram(breaks=unique(c(X$min,X$MIC)),aes(fill=colour,y=stat(count)/sum(stat(count))),colour="white",size=0.1) + 
-    scale_fill_manual(values=c("dodgerblue","firebrick"))+
-    geom_polygon(data=density_bimodal,aes(x=x,y=y_s),fill="dodgerblue",alpha=0.5) + 
-    geom_polygon(data=density_bimodal,aes(x=x,y=y_r),fill="firebrick",alpha=0.5) + 
-    geom_line(data=density_bimodal,aes(x=x,y=y_s),colour="dodgerblue3",size=0.5) + 
-    geom_line(data=density_bimodal,aes(x=x,y=y_r),colour="firebrick3",size=0.5) + 
-    geom_line(data=density_bimodal,aes(x=x,y=y_all),linetype="dashed",size=0.5) + 
-    theme_void() + 
-    #labs(title=paste0(unique(data$Bacteria),"\n",unique(data$Antibiotic)),x=NULL, y=NULL) +
-    theme(plot.title = element_text(hjust = 0.5))+
-    theme(legend.position="none")
-  
-  unimodal_plots[[i]]<-ggplot(data=X_reinstate_df,aes(x=X_reinstate)) +
-    geom_histogram(breaks=unique(c(X$min,X$MIC)),aes(fill=colour,y=stat(count)/sum(stat(count))),colour="white",size=0.1) + 
-    scale_fill_manual(values=c("dodgerblue","firebrick"))+
-    geom_polygon(data=density_unimodal,aes(x=x,y=y),fill="dodgerblue",alpha=0.2) + 
-    geom_polygon(data=density_unimodal,aes(x=x,y=y),fill="firebrick",alpha=0.2) + 
-    geom_line(data=density_unimodal,aes(x=x,y=y),linetype="dashed",size=0.5) + 
-    theme_void() + 
-    #labs(title=paste0(unique(data$Bacteria),"\n",unique(data$Antibiotic)),x=NULL, y=NULL) +
-    theme(plot.title = element_text(hjust = 0.5))+
-    theme(legend.position="none")
-}
+patchwork<-mcmc_model_plot|burden_violin |burden_scatter
+patchwork + plot_layout(widths = c(1, 2,2)) + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
