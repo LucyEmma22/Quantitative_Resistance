@@ -293,6 +293,24 @@ bar_plot<-ggplot(plot_data,aes(x=Group,y=Count))+
   theme(legend.position="none",plot.title = element_text(hjust = 0.5))+
   geom_label(aes(label=Count))
 
+plot_data<-bimodality_results %>% mutate(Group=ifelse(best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap<0.01,"Low Overlap",
+                                                      ifelse(best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap>0.01,"High Overlap",
+                                                             ifelse(best_model=="Bimodal"& peaks=="1 Peak","1 Peak","1 Component"))))
+ggplot(plot_data,aes(x=prop_overlap,y=Group))+geom_boxplot()
+
+mean(filter(bimodality_results,best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap<0.01)$prop_overlap)
+
+mean(filter(bimodality_results,best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap>0.01)$prop_overlap)
+min(filter(bimodality_results,best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap>0.01)$prop_overlap)
+max(filter(bimodality_results,best_model=="Bimodal"& peaks=="2 Peaks"&prop_overlap>0.01)$prop_overlap)
+
+mean(filter(bimodality_results,best_model=="Bimodal"& peaks=="1 Peak")$prop_overlap)
+min(filter(bimodality_results,best_model=="Bimodal"& peaks=="1 Peak")$prop_overlap)
+max(filter(bimodality_results,best_model=="Bimodal"& peaks=="1 Peak")$prop_overlap)
+
+mean(filter(bimodality_results,best_model=="Unimodal")$prop_overlap)
+
+
 ############### MIXTURE MODEL OVERLAP PLOT ###############
 
 # Violin Plot - all
@@ -312,7 +330,7 @@ overlap_plot_all<-ggplot(excluding_examples_overlap,aes(prop_overlap,1))+
 ############### ARRANGING PLOTS ###############
 
 examples<-ggarrange(example_plots[[1]],example_plots[[2]],example_plots[[3]],example_plots[[4]],nrow=1)
-patchwork <- (pval_violin_plot / test_bar_plot) | (bar_plot / examples / overlap_plot_all) 
+patchwork <- (pval_violin_plot / test_bar_plot) | (overlap_plot_all / examples / bar_plot) 
 patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
 
 wrap_elements(grid::textGrob('Unimodality Tests')) / pval_violin_plot / test_bar_plot + plot_layout(heights = c(1,6,6)) | (wrap_elements(grid::textGrob('Mixture Models')) / examples /bar_plot / overlap_plot_all + plot_layout(heights = c(1,4,4,4)))
