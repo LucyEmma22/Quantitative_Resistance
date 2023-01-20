@@ -1,4 +1,4 @@
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
@@ -77,7 +77,7 @@ ggplot(GWAS_data,aes(log10(n)))+
 
 # RESFINDER GENES
 
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance/ResFinder_ARGs")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance/ResFinder_ARGs")
 files<-list.files()
 files<-files[grepl( ".fsa", files, fixed = TRUE)]
 drug_list<-gsub('.fsa','',files)
@@ -118,17 +118,17 @@ gene_resfinder_pubmed<-ggplot(gene_nos,aes(x=log10(pubmed),y=log10(genes_mutated
   geom_line(data=df,aes(x=x,y=y),colour="mediumseagreen")
   #geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0,size=3)
 
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 write.csv(gene_nos,file="ResFinder_ARGs_and_PubMed_Search_Results.csv")
 
 # RESFINDER MUTATIONS
 
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance/PointFinder_mutations")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance/PointFinder_mutations")
 folders<-list.files()
 mut_nos<-data.frame()
 
 for (i in 1:length(folders)){
-  setwd(paste("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance/PointFinder_mutations",folders[i],sep="/"))
+  setwd(paste("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance/PointFinder_mutations",folders[i],sep="/"))
   data<-read.delim2("resistens-overview.txt")[2:7] %>% 
     mutate(Resistance = strsplit(as.character(Resistance), ",")) %>% unnest(Resistance) %>% mutate(Resistance=trimws(Resistance)) %>% mutate(Resistance=str_to_sentence(Resistance)) %>% 
     filter(is.na(as.numeric(Codon_pos))==F) %>% filter(is.na(as.numeric(Ref_nuc))==T)
@@ -175,7 +175,7 @@ mut_resfinder_pubmed<-ggplot(mut_nos,aes(log10(pubmed),log10(mutations)))+
   geom_line(data=df,aes(x=x,y=y),colour="mediumpurple")
   #geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0,size=3)
 
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 write.csv(gene_nos,file="PointFinder_Mutations_and_PubMed_Search_Results.csv")
 
 #########################################################################################################

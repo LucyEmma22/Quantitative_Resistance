@@ -1,6 +1,6 @@
 ################################################################################################################################################
 # IMPORT CSV FILES
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance/CSVs")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance/CSVs")
 library(gtools) # Library for 'smartbind' function
 library(stringr) # Library for 'gsub' function
 ################################################################################################################################################
@@ -20,7 +20,7 @@ for (i in 1:length(file_list)){ # Set up a loop - let i be 1, then 2, then 3 etc
 
 ################################################################################################################################################
 # TIDY DATAFRAME
-setwd("~/OneDrive - University of Edinburgh/Quantitative_Resistance/Quantitative_Resistance")
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 library(dplyr)
 library(tidyr)
 ################################################################################################################################################
@@ -188,8 +188,8 @@ all_means<-data.frame(mean=c(cb_mean,dt_mean,em_mean),test=c("criticalbandwidth_
 pval_violin_plot<-ggplot(test_results,aes(pval,test))+
   geom_jitter(aes(colour=test),size=0.3,alpha=0.3,height=0.45)+
   geom_violin(aes(fill=test),colour=NA,alpha=0.6)+
-  scale_fill_manual(values=c("mediumpurple","mediumseagreen","goldenrod"))+
-  scale_colour_manual(values=c("mediumpurple","mediumseagreen","goldenrod"))+
+  scale_fill_manual(values=c("darkslategray2","darkslategray3","darkslategray4"))+
+  scale_colour_manual(values=c("darkslategray2","darkslategray3","darkslategray4"))+
   theme_light()+
   labs(title="Unimodality Tests",x="P-Value",y=NULL)+
   theme(legend.position="none",plot.title = element_text(hjust = 0.5))+
@@ -204,7 +204,7 @@ test_bar_plot<-ggplot(prop_bimodal_tests,aes(x=prop_bimodal,y=Var1))+
   geom_bar(stat="identity",aes(fill=Var1),alpha=0.8,colour="black")+
   theme_light()+
   theme(legend.position="none")+
-  scale_fill_manual(values=c("mediumpurple","mediumseagreen","goldenrod"))+
+  scale_fill_manual(values=c("darkslategray2","darkslategray3","darkslategray4"))+
   labs(x="Proportion Bimodal (P-Value < 0.05)",y=NULL)+
   geom_label(aes(label=round(prop_bimodal,2)))+
   scale_y_discrete(labels=c("excessmass_pval" = str_wrap("Excess Mass",5), "diptest_pval" = "Dip Test","criticalbandwidth_pval" = str_wrap("Critical Bandwidth",5)))
@@ -254,9 +254,9 @@ for (i in 1:length(examples)){
     scale_fill_manual(values=c("dodgerblue","firebrick"))+
     geom_polygon(data=df_density,aes(x=x,y=y_s),fill="dodgerblue",alpha=0.3) + 
     geom_polygon(data=df_density,aes(x=x,y=y_r),fill="firebrick",alpha=0.3) + 
-    geom_line(data=df_density,aes(x=x,y=y_s),colour="dodgerblue3",size=0.5) + 
-    geom_line(data=df_density,aes(x=x,y=y_r),colour="firebrick3",size=0.5) + 
-    geom_line(data=df_density,aes(x=x,y=y_all),linetype="dashed",size=0.5) + 
+    geom_line(data=df_density,aes(x=x,y=y_s),colour="dodgerblue4",size=0.5) + 
+    geom_line(data=df_density,aes(x=x,y=y_r),colour="firebrick4",size=0.5) + 
+    #geom_line(data=df_density,aes(x=x,y=y_all),linetype="dashed",size=0.5) + 
     theme_void() + 
     labs(title=label[i],subtitle=title[i],x=NULL, y=NULL) +
     theme(plot.title = element_text(hjust = 0.5,size=10,colour = title_col[i]),plot.subtitle = element_text(hjust = 0.5,size=8),legend.position="none")
@@ -330,7 +330,7 @@ overlap_plot_all<-ggplot(excluding_examples_overlap,aes(prop_overlap,1))+
 ############### ARRANGING PLOTS ###############
 
 examples<-ggarrange(example_plots[[1]],example_plots[[2]],example_plots[[3]],example_plots[[4]],nrow=1)
-patchwork <- (pval_violin_plot / test_bar_plot) | (overlap_plot_all / examples / bar_plot) 
+patchwork <- (pval_violin_plot / test_bar_plot) | (overlap_plot_all / examples / bar_plot + plot_layout(heights = c(2,1,2))) 
 patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
 
 wrap_elements(grid::textGrob('Unimodality Tests')) / pval_violin_plot / test_bar_plot + plot_layout(heights = c(1,6,6)) | (wrap_elements(grid::textGrob('Mixture Models')) / examples /bar_plot / overlap_plot_all + plot_layout(heights = c(1,4,4,4)))
@@ -352,9 +352,9 @@ wtest<-wilcox.test(prop_overlap ~ group,data = bimodality_results2,exact = FALSE
 label<-paste0("Wilcoxon Test = ", round(wtest$statistic), ",  P-Value = ",round(wtest$p.value,4))
 lab<-data.frame(x=1,y=2.55,label=label)
 burden_violin<-ggplot(data=bimodality_results2,aes(x=prop_overlap,y=str_wrap(group,2)))+
-  geom_violin(fill="mediumpurple",alpha=0.5,colour=NA)+
-  geom_boxplot(fill="mediumpurple",alpha=0.5,width=0.15,colour="mediumpurple4")+
-  geom_jitter(size=0.5,colour="mediumpurple4")+
+  geom_violin(fill="darkslategray3",alpha=0.5,colour=NA)+
+  geom_boxplot(fill="darkslategray3",alpha=0.5,width=0.15,colour="darkslategray4")+
+  geom_jitter(size=0.5,colour="darkslategray4")+
   theme_light()+
   #geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=1)+
   labs(x="Overlap Proportion",y=NULL)
@@ -368,7 +368,7 @@ stest<-cor.test(burden$mean_overlap, burden$burden, method = "spearman")
 label<-paste0("Spearman Correlation = ", round(stest$estimate), ",  P-Value = ",round(stest$p.value,4))
 lab<-data.frame(x=max(burden$mean_overlap),y=max(log10(burden$burden))+0.1,label=label)
 burden_scatter<-ggplot(data=burden,aes(mean_overlap,log10(burden)))+
-  geom_point(colour="mediumpurple4")+
+  geom_point(colour="darkslategray4")+
   theme_light()+
   #geom_label(data=lab,aes(x=x,y=y,label=label),hjust=1,vjust=0)+
   labs(x="Overlap Proportion",y="log10 (Attributable Deaths)")+

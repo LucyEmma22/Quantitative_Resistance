@@ -1,5 +1,3 @@
-setwd("~/OneDrive - University of Edinburgh/PhD Year 2/Toy Model")
-
 library(dplyr)
 library(stringr)
 

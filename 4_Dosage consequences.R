@@ -169,7 +169,7 @@ parallel::stopCluster(cl = my.cluster)
 print(Sys.time())
 
 setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
-write.csv(examples_data,file="all_result.csv",row.names = FALSE)
+write.csv(all_results,file="within_host_results.csv",row.names = FALSE)
 
 # ====================================================================================================================
 # PLOTS
