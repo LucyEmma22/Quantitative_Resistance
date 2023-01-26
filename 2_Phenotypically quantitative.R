@@ -289,7 +289,6 @@ bar_plot<-ggplot(plot_data,aes(x=Group,y=Count))+
   geom_bar(stat="identity",alpha=0.8,colour="black",aes(fill=Group))+
   scale_fill_manual(values=c("mediumpurple","mediumseagreen","goldenrod","mediumvioletred"))+
   theme_light()+
-  labs(title="Mixture Models")+
   theme(legend.position="none",plot.title = element_text(hjust = 0.5))+
   geom_label(aes(label=Count))
 
@@ -324,8 +323,8 @@ overlap_plot_all<-ggplot(excluding_examples_overlap,aes(prop_overlap,1))+
   geom_segment(x = overlap_mean_all, y = 0.6, xend = overlap_mean_all, yend = 1.4,colour="grey")+
   geom_point(data=examples_overlap,aes(x=prop_overlap,y=1),colour=examples_overlap$col,size=4,shape=4,stroke=1.5)+
   theme_light()+
-  labs(x="Overlap",y="Frequency")+
-  theme(axis.text.y = element_blank(),axis.ticks.y = element_blank())
+  labs(title="Mixture Models",x="Overlap",y="Frequency")+
+  theme(plot.title = element_text(hjust = 0.5),axis.text.y = element_blank(),axis.ticks.y = element_blank())
 
 ############### ARRANGING PLOTS ###############
 
