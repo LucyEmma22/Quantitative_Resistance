@@ -1,18 +1,18 @@
-"","antibiotic","genes_mutated","pubmed"
-"1","Aminoglycoside",265,8536
-"2","Beta-lactam",2013,27826
-"3","Colistin",56,3990
-"4","Disinfectant",17,1958
-"5","Fosfomycin",41,1194
-"6","Fusidic acid",3,614
-"7","Glycopeptide",44,5207
-"8","Macrolide",176,7486
-"9","Nitroimidazole",14,915
-"10","Oxazolidinone",25,1627
-"11","Phenicol",48,230
-"12","Pseudomonic acid",3,684
-"13","Quinolone",128,9964
-"14","Rifampicin",10,4714
-"15","Sulphonamide",54,2971
-"16","Tetracycline",148,11963
-"17","Trimethoprim",109,4996
+"","antibiotic","genes_mutated","pubmed","bacteria_antibiotic"
+"1","Beta-lactam",2013,27919,"Beta-lactam"
+"2","Aminoglycoside",265,8577,"Aminoglycoside"
+"3","Macrolide",176,7532,"Macrolide"
+"4","Tetracycline",148,12024,"Tetracycline"
+"5","Quinolone",128,10010,"Quinolone"
+"6","Trimethoprim",109,5016,"Trimethoprim"
+"7","Colistin",56,4031,"Colistin"
+"8","Sulphonamide",54,2978,"Sulphonamide"
+"9","Phenicol",48,235,"Phenicol"
+"10","Glycopeptide",44,5223,"Glycopeptide"
+"11","Fosfomycin",41,1201,"Fosfomycin"
+"12","Oxazolidinone",25,1635,"Oxazolidinone"
+"13","Disinfectant",17,1969,"Disinfectant"
+"14","Nitroimidazole",14,924,"Nitroimidazole"
+"15","Rifampicin",10,4732,"Rifampicin"
+"16","Fusidic acid",3,614,"Fusidic acid"
+"17","Pseudomonic acid",3,685,"Pseudomonic acid"

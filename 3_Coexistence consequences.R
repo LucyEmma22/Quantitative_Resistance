@@ -1,12 +1,14 @@
 library(dplyr)
 library(stringr)
+library(gridExtra)
+library(ggplot2)
+library(patchwork)
+library(ggpubr)
 
 #####################################################################################################################################
 # CALCULATING FITTEST MIC AND PROPORTION OF RESISTANCE FOR DIFFERENT ANTIBIOTIC USAGE RATES AND AMOUNTS OF STANDING GENETIC VARIANCE
-#####################################################################################################################################
 
 sd_rs_list<-c(0.001, 0.5, 1) # Standing genetic variance 
-
 ts_list<-seq(0,20,length.out=1001) # Antibiotic usage x antibiotic clearance rate
 
 # Data frame for standing genetic variance and treatment rate
@@ -45,11 +47,6 @@ for (i in 1:nrow(SGV_and_treatment)){
 
 ######################################################################################################################################################
 # GRAPHS
-library(gridExtra)
-library(ggplot2)
-library(patchwork)
-library(ggpubr)
-######################################################################################################################################################
 
 tr_examlpes<-c(1,3,5)
 tr_titles<-c("I","II","III")
@@ -62,7 +59,7 @@ fittest_mic_plot<-ggplot(df,aes(x=t,y=fittest_mic))+
   theme_light()
 
 prop_resistance_plot<-ggplot(df,aes(x=t,y=prop_resistant,colour=as.factor(sd_r)))+
-  geom_line(lwd=0.8)+
+  geom_line(lwd=0.5)+
   theme_light()+
   labs(x="Treatment Rate",y="Proportion Resistant")+
   scale_colour_manual(name=str_wrap("Standing Genetic Variation", width=30),values=c("mediumpurple","mediumseagreen","goldenrod"))+
@@ -83,9 +80,8 @@ df2<-data.frame(x=seq(-4,8,0.01),y=dnorm(seq(-4,8,0.01), mean, variance))
 plots[[i]]<-ggplot(data=df2,aes(x,y))+
   geom_ribbon(data=subset(df2,x>2),aes(ymax=y),ymin=0,fill="firebrick3",colour="firebrick3")+
   geom_ribbon(data=subset(df2,x<2),aes(ymax=y),ymin=0,fill="dodgerblue",colour="dodgerblue")+
-  #geom_line(data=df2,aes(y=y,x=x),fill="white",colour="black")+
   theme_void()+
-  theme(axis.text = element_blank(),axis.ticks = element_blank(),plot.title = element_text(colour = title_col[i],hjust=0.5,face="bold"))+
+  theme(axis.text = element_blank(),axis.ticks = element_blank(),plot.title = element_text(colour = title_col[i],hjust=0.5))+
   geom_vline(xintercept = 2, linetype="dashed", color = "black", size=0.5)+
   labs(title=title[i],x=NULL,y=NULL)
 }
@@ -93,4 +89,4 @@ plots[[i]]<-ggplot(data=df2,aes(x,y))+
 example_plots<-ggarrange(plots[[1]],plots[[2]],plots[[3]],plots[[4]],plots[[5]],plots[[6]],plots[[7]],plots[[8]],plots[[9]])
 example_plots<-annotate_figure(example_plots,bottom = text_grob("MIC"),left = text_grob("Frequency",rot = 90))
 patchwork<-(fittest_mic_plot|prop_resistance_plot|example_plots) + plot_layout(widths = c(3,3,3))
-patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
+patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1), text = element_text(size = 12))

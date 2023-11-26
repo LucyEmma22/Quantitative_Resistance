@@ -20,33 +20,18 @@ GWAS_data<-read.csv("GWAS_data.csv") %>% filter(value!=0)
 # GWAS GENES AND MUTATIONS
 
 GWAS_mutations<-filter(GWAS_data,gene_mutation=="mutation",value!=0)
-GWAS_genes<-filter(GWAS_data,gene_mutation=="gene",value!=0)
-
-gwas_genes_mutations<-ggplot(GWAS_data,aes(x=log10(value),y=method))+
-  geom_boxplot(aes(fill=gene_mutation),alpha=0.8)+ 
-  scale_fill_manual(name="",values=c("mediumseagreen","mediumpurple"),labels=c("Gene","Mutation"))+
-  theme_light()+ 
-  theme(legend.position="none")+
-  labs(x="Log10 (Number of Genes/Mutations)",y="GWAS Method")+
-  theme(plot.title = element_text(hjust = 0.5))+
-  geom_vline(xintercept=log10(mean(GWAS_genes$value,na.rm=T)),colour="mediumseagreen",linetype="dashed")+
-  geom_vline(xintercept=log10(mean(GWAS_mutations$value,na.rm=T)),colour="mediumpurple",linetype="dashed")
-  #geom_text(data=data.frame(x=2.9,y=10.2,lab=paste0("Mean Number of Genes = ",round(mean(genes$value,na.rm=T),1))),aes(x=x,y=y,label=lab),colour="mediumseagreen",hjust=1,size=4,angle=90)+
-  #geom_text(data=data.frame(x=2.6,y=10.2,lab=paste0("Mean Number of Mutations = ",round(mean(mut$value,na.rm=T),1))),aes(x=x,y=y,label=lab),colour="mediumpurple",hjust=1,size=4,angle=90)+
-  #geom_richtext(data=data.frame(x=2.5,y=10,lab=paste0("Genes: Mean =  ",round(mean(genes$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8,angle=90)+
-  #geom_richtext(data=data.frame(x=3,y=10,lab=paste0("Mutations: Mean = ",round(mean(mutations$value,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8,angle=90)
-
 GWAS_genes_plot<-ggplot(GWAS_genes,aes(x=log10(value),y=method))+
   geom_boxplot(fill="mediumseagreen",alpha=0.8)+ 
   theme_light()+ 
-  labs(title=str_wrap("Predicted Resistance Genes (bGWAS)",25),x="Log10 (Number of Genes)",y="bGWAS Method")+
+  labs(x="Log10 (Number of Genes)",y="bGWAS Method")+
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept=log10(mean(GWAS_genes$value,na.rm=T)),colour="mediumseagreen",linetype="dashed")
 
+GWAS_genes<-filter(GWAS_data,gene_mutation=="gene",value!=0)
 GWAS_mutations_plot<-ggplot(GWAS_mutations,aes(x=log10(value),y=method))+
   geom_boxplot(fill="mediumpurple",alpha=0.8)+ 
   theme_light()+ 
-  labs(title=str_wrap("Predicted Resistance Mutations (bGWAS)",25),x="Log10 (Number of Mutations)",y="bGWAS Method")+
+  labs(x="Log10 (Number of Mutations)",y="bGWAS Method")+
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept=log10(mean(GWAS_mutations$value,na.rm=T)),colour="mediumpurple",linetype="dashed")
 
@@ -90,11 +75,10 @@ for (i in 1:length(files)){
 gene_resfinder<-ggplot(gene_nos,aes(x=log10(genes_mutated),y=antibiotic))+
   geom_bar(stat="identity",colour="black",fill="mediumseagreen",alpha=0.8)+ 
   theme_light()+ 
-  labs(title=str_wrap("Known Resistance Genes (ResFinder)",25),x="Log10 (Number of ARGs)",y="Antibiotic")+ 
+  labs(x="Log10 (Number of ARGs)",y="Antibiotic")+ 
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept=log10(mean(gene_nos$genes_mutated)),colour="mediumseagreen",linetype="dashed")
-  #geom_richtext(data=data.frame(x=3,y=17,lab=paste0("Genes: Mean =  ",round(mean(gene_nos$genes_mutated,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumseagreen",hjust=1,size=3,alpha=0.8,angle=90)
-  
+
 # RESFINDER GENES VS PUBMED SEARCH
 
 pubmed_results1<-data.frame()
@@ -147,10 +131,9 @@ mut_nos$antibiotic<-gsub("Para-aminosalicyclic acid","Para-aminosalicylic acid",
 mut_resfinder<-ggplot(mut_nos,aes(x=log10(mutations),y=str_wrap(bacteria,5)))+
   geom_boxplot(fill="mediumpurple",alpha=0.8)+ 
   theme_light()+ 
-  labs(title=str_wrap("Known Resistance Mutations (PointFinder)",25),x="Log10 (Number of Chromosomal Mutations)",y="Bacterial Species")+ 
+  labs(x="Log10 (Number of Chromosomal Mutations)",y="Bacterial Species")+
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept=log10(mean(mut_nos$mutations)),colour="mediumpurple",linetype="dashed")
-  #geom_richtext(data=data.frame(x=2.5,y=10,lab=paste0("Mutations: Mean =  ",round(mean(mut_nos$mutations,na.rm=T),1))),aes(x=x,y=y,label=lab),fill="mediumpurple",hjust=1,size=3,alpha=0.8,angle=90)
 
 # RESFINDER MUTATIONS VS PUBMED SEARCH 
 
@@ -176,14 +159,14 @@ mut_resfinder_pubmed<-ggplot(mut_nos,aes(log10(pubmed),log10(mutations)))+
   #geom_text(data=data.frame(x=2.5,y=3,lab=title),aes(x=x,y=y,label=title),hjust=0,size=3)
 
 setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
-write.csv(gene_nos,file="PointFinder_Mutations_and_PubMed_Search_Results.csv")
+write.csv(mut_nos,file="PointFinder_Mutations_and_PubMed_Search_Results.csv")
 
 #########################################################################################################
 # ARRANGE FIGURE
 #########################################################################################################
 
-patchwork <- (gene_resfinder/gene_resfinder_pubmed | mut_resfinder/mut_resfinder_pubmed | (GWAS_genes_plot|GWAS_mutations_plot) / heritability_plot) + plot_layout(widths = c(1,1,2))
-patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
+patchwork <- ((gene_resfinder|gene_resfinder_pubmed) / (mut_resfinder|mut_resfinder_pubmed) / (GWAS_genes_plot|GWAS_mutations_plot) / heritability_plot) + plot_layout(widths = c(1,1,2))
+patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1), text = element_text(size = 8)) 
 
 #########################################################################################################
 # DISPLAY MEAN/MIN/MAX 

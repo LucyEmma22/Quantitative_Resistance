@@ -1,17 +1,12 @@
+setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 library(foreach)
 library(doParallel)
 library(deSolve)
 library(dplyr)
-library(ggplot2)
 library(tidyverse)
-library(patchwork)
-#library(ranger)
-#library(palmerpenguins)
-#library(kableExtra)
 
-# ====================================================================================================================
+#######################################################################################################################
 # MODEL
-# ====================================================================================================================
 
 mutation_rate<-10^-8 # Minimum mutation rate per division
 V_max<-0.5 # Maximum growth rate per hour
@@ -85,9 +80,8 @@ model<-function(times,state,pars){
   })
 }
 
-# ====================================================================================================================
+#######################################################################################################################
 # EXAMPLE DYNANMICS
-# ====================================================================================================================
 
 df_n_dose_runs<-data.frame(n=c(2,2,10,10),dose=c(0,40,0,40))
 examples_data<-data.frame()
@@ -116,15 +110,17 @@ for(j in 1:nrow(df_n_dose_runs)){
 
   df_plot<-gather(out,"genotype","frequency",2:(n+1))
   df_plot$genotype<-as.numeric(gsub("b","",df_plot$genotype))
-  df_plot<-full_join(df_plot,select(bacterial_parameters,genotype,mic),by="genotype")
+  df_plot$genotype <- as.character(df_plot$genotype)
+  bacterial_parameters$genotype <- as.character(bacterial_parameters$genotype)
+  df_plot<-full_join(df_plot,dplyr::select(bacterial_parameters,genotype,mic),by="genotype")
   df_plot$time<-df_plot$time/24
   df_plot<-df_plot %>% mutate(facet=paste0("Strains: ", n, "  Dose: ",dose))
   examples_data<-rbind(examples_data,df_plot)
   }
+write.csv(examples_data,file="within_host_results_examples.csv",row.names = FALSE)
 
-# ====================================================================================================================
+#######################################################################################################################
 # ALL N AND DOSE
-# ====================================================================================================================
 
 n_list<-2:10
 dose_list<-0:40
@@ -167,150 +163,4 @@ all_results<-foreach (j = 1:nrow(df_n_dose_runs),.combine=rbind) %dopar% {
 
 parallel::stopCluster(cl = my.cluster)
 print(Sys.time())
-
-setwd("~/Library/CloudStorage/OneDrive-UniversityofEdinburgh/Quantitative_Resistance/Quantitative_Resistance")
 write.csv(all_results,file="within_host_results.csv",row.names = FALSE)
-
-# ====================================================================================================================
-# PLOTS
-# ====================================================================================================================
-
-# Example dynamics
-cols <- c("dodgerblue","firebrick")
-colGradient <- colorRampPalette(cols)
-examples_data$facet <- factor(examples_data$facet, levels = unique(examples_data$facet))
-example_dynamics<-ggplot(examples_data,aes(x=time,y=frequency,colour=as.factor(round(mic,1))))+
-  geom_line(key_glyph = "rect")+
-  theme_light()+
-  scale_y_log10(limits = c(1,10^10))+
-  facet_wrap(~facet,nrow=1)+
-  scale_colour_manual(name="MIC",values=colGradient(mic))+
-  theme(legend.position="bottom")+
-  guides(colour = guide_legend(nrow = 1))+
-  labs(x="Time (Days)",y="Density of Bacteria")
-
-# ====================================================================================================================
-
-# Resistant cell density for n=2 and n=10
-total<-all_results %>% group_by(n,dose,run) %>% summarise_at(vars(freq),list(total = sum)) %>% group_by(n,dose) %>% summarise_at(vars(total),list(mean_total = mean))
-resistant<-all_results %>% filter(mic>2) %>% group_by(n,dose,run) %>% summarise_at(vars(freq),list(resistant = sum)) %>% group_by(n,dose) %>% summarise_at(vars(resistant),list(mean_resistant = mean))
-total_and_resistant<-full_join(total,resistant,by=c("n","dose")) %>% mutate(mean_prop_resistant=mean_resistant/mean_total)
-
-twoten<-filter(total_and_resistant,n==2|n==10)
-twoten %>% filter(mean_resistant==max(mean_resistant))
-twoten_plot<-ggplot(twoten,aes(x=dose,y=mean_resistant))+
-  geom_line(size=0.8)+
-  geom_line(data=twoten,aes(x=dose,y=mean_prop_resistant*max(twoten$mean_total)),colour="mediumpurple",linetype="dashed",size=0.5)+
-  geom_line(data=twoten,aes(x=dose,y=mean_total),colour="mediumseagreen",linetype="dashed",size=0.5)+
-  facet_wrap(.~n)+
-  labs(x="Antibiotic Dose",y="Total Resistant Cell Density")+
-  theme_light()+
-  geom_vline(xintercept=c(20,35),linetype="solid",size=0.6,colour="grey")
-
-# ====================================================================================================================
-
-# Best Dose for different n and clinical ranges
-df<-data.frame(min=rep(seq(5,35,5),each=7),max=rep(seq(10,40,5),7)) %>% filter(max>min)
-best_dose<-data.frame()
-for(i in 1:nrow(df)){
-  best_dose<-rbind(best_dose,filter(total_and_resistant,dose==df$min[i]|dose==df$max[i]) %>% group_by(n) %>%slice(which.min(mean_resistant)) %>% dplyr::select(n,dose) %>% mutate(min=df$min[i],max=df$max[i]))
-}
-best_dose <- best_dose %>% mutate(best=ifelse(dose==min,"Low","High"))
-adjust<-1
-best_dose_adj <- best_dose %>% mutate(min=ifelse(n==2|n==3|n==4,min+adjust,min)) %>% 
-  mutate(min=ifelse(n==8|n==9|n==10,min-adjust,min)) %>% 
-  mutate(max=ifelse(n==2|n==5|n==8,max-adjust,max)) %>% 
-  mutate(max=ifelse(n==4|n==7|n==10,max+adjust,max))
-
-best_dose_plot<-ggplot(best_dose_adj,aes(x=max,y=min))+
-  geom_point(aes(fill=best),shape=22,size=6,colour="black",stroke=0.2)+
-  geom_point(data=filter(best_dose_adj,n==2 & min==20+adjust & max==35-adjust),aes(x=max,y=min),shape=22,size=6,colour="red",stroke=0.9)+
-  geom_point(data=filter(best_dose_adj,n==10 & min==20-adjust & max==35+adjust),aes(x=max,y=min),shape=22,size=6,colour="red",stroke=0.9)+
-  theme_light()+
-  labs(fill="Best Dose", x="Maximum Clinical Dose",y="Minimum Clinical Dose")+
-  scale_fill_manual(values=c("dodgerblue","goldenrod"))+
-  geom_text(aes(label=n),colour="black",size=3)
-
-# ====================================================================================================================
-
-# Arrange plots
-
-patchwork<-example_dynamics/twoten_plot + plot_layout(heights = c(1,3)) | best_dose_plot
-patchwork + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = 1))
-
-
-
-
-
-# ====================================================================================================================
-# OTHER PLOTS
-# ====================================================================================================================
-
-# Total of each strain at each dose
-f<- all_results %>% group_by(n,mic,dose) %>% summarise_at(vars(freq),list(mean_freq = mean))
-ggplot(f,aes(x=dose,y=mean_freq,colour=as.factor(mic)))+geom_line()+facet_wrap(.~n) + theme_light() + theme(legend.position="none")+ labs(x="Antibiotic Dose",y="Frequency")
-
-# MIC with maximum frequency at each dose
-g <- all_results %>% group_by(n,dose) %>% summarise_at(vars(freq),list(max_freq = max)) %>% full_join(all_results) %>% filter(max_freq==freq)
-ggplot(data=g,aes(x=dose,y=mic,colour=as.factor(n)))+geom_line()+ theme_light()+ labs(colour="Strains",x="Antibiotic Dose",y="MIC")
-
-# ====================================================================================================================
-# Other graphs
-df<-data.frame(low=rep(dose_list,each=length(dose_list)),high=rep(dose_list,length(dose_list))) %>% filter(high>low)
-best_dose<-data.frame()
-for(i in 1:nrow(df)){
-  best_dose<-rbind(best_dose,filter(total_and_resistant,dose==df$low[i]|dose==df$high[i]) %>% group_by(n) %>%slice(which.min(mean_resistant)) %>% dplyr::select(n,dose) %>% mutate(low=df$low[i],high=df$high[i]))
-}
-best_dose$best<-ifelse(best_dose$dose==best_dose$low,"Low","High")
-ggplot(best_dose,aes(x=as.factor(n),y=high,fill=best))+
-  geom_tile(alpha=0.9)+
-  theme_light()+
-  labs(fill="Best Dose", x="Number of Strains",y="Maximum Clinical Dose")+
-  scale_fill_manual(values=c("mediumpurple4","mediumpurple"))+
-  facet_wrap(. ~ low, scales="free_y")+
-  geom_tile(data=filter(best_dose,(low==25 & high==35 & n==2)|(low==25 & high==35 & n==10)),aes(x=as.factor(n),y=high),colour="red",size=0.4, show.legend = F)
-
-adjust<-0.25
-bestdose2 <- best_dose %>% mutate(low=ifelse(n==2|n==3|n==4,low+adjust,low)) %>% 
-  mutate(low=ifelse(n==8|n==9|n==10,low-adjust,low)) %>% 
-  mutate(high=ifelse(n==2|n==5|n==8,high-adjust,high)) %>% 
-  mutate(high=ifelse(n==4|n==7|n==10,high+adjust,high))
-
-p1<-ggplot(bestdose2,aes(x=high,y=low,fill=best))+
-  geom_point(shape=22,size=2,colour="black",stroke=0.2)+
-  theme_light()+
-  labs(fill="Best Dose", x="Maximum Clinical Dose",y="Minimum Clinical Dose")+
-  scale_fill_manual(values=c("dodgerblue","goldenrod"))
-
-p2<-ggplot(bestdose2[0:9,],aes(x=high,y=low,colour=best))+
-  geom_point(shape=0,size=8,colour="black")+
-  theme_void()+
-  labs(colour="Best Dose", x="Maximum Clinical Dose",y="Minimum Clinical Dose")+
-  scale_colour_manual(values=c("dodgerblue","goldenrod"))+
-  xlim(0.6,1.4)+
-  ylim(-0.4,0.4)+
-  geom_text(aes(label=n),colour="black",size=3)+
-  labs(title="Number of Strains")+
-  theme(plot.title = element_text(hjust = 0.5,size=10))
-
-p1 + inset_element(p2, left = 0.9, bottom = 0.2, right = 1, top = 0.35, 
-                   on_top = FALSE, align_to = 'full')
-
-# ====================================================================================================================
-
-normalised_total_and_resistant <- total_and_resistant %>% 
-  full_join(total_and_resistant %>% group_by(n) %>% summarise_at(vars(mean_resistant),list(min_mean_resistant = min))) %>% 
-  full_join(total_and_resistant %>% group_by(n) %>% summarise_at(vars(mean_resistant),list(max_mean_resistant = max))) %>% 
-  mutate(normalised=(mean_resistant - min_mean_resistant) / (mean_resistant - min_mean_resistant))
-
-normalised_twoten<-normalised_total_and_resistant %>% filter(n==2|n==10)
-plot2<-ggplot(data=normalised_twoten,aes(dose,normalised,colour=as.factor(n)))+
-  geom_line(size=1)+
-  #labs(colour="Number of Strains",x="Antibiotic Dose",y="Proportion Resistant X Total Bacteria")+
-  labs(x=NULL,y=NULL)+
-  theme_light()+
-  theme(legend.position="none")+
-  scale_colour_manual(values=c("mediumpurple","mediumseagreen"))+
-  geom_vline(xintercept=c(25,35),linetype="dashed",size=1)
-
-
